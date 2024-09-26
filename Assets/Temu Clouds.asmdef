@@ -1,0 +1,8 @@
+{
+	"name": "Temu Clouds",
+	"references": [
+		"UnityEngine.UI",
+		"Unity.TextMeshPro",
+		"Unity.Mathematics"
+	]
+}
