@@ -1,15 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts;
 using ModApi.Flight.Sim;
 using System;
-using Object = System.Object;
 
 public class CloudHandler : MonoBehaviour
 {
-    public GameObject clouds;
-    private bool isdroo;
+    public GameObject Clouds;
+    private bool _isDroo;
     
     void Start()
     {
@@ -23,32 +20,35 @@ public class CloudHandler : MonoBehaviour
         CloudCheck();
     }
 
-    private void SettingChanged(Object sender, EventArgs e)
+    private void SettingChanged(object sender, EventArgs e)
     {
         CloudCheck();
     }
 
     void CloudCheck()
     {
-        if(Game.Instance.FlightScene.CraftNode.Parent.Name == "Droo")
+        _isDroo = Game.Instance.FlightScene.CraftNode.Parent.Name == "Droo";
+        if (_isDroo)
         {
-            isdroo = true;
-            if(clouds==null) clouds = Instantiate(Mod.Instance.ResourceLoader.LoadAsset<GameObject>("Clouds"));
-            clouds.transform.localScale = (2+ModSettings.Instance.CloudHeight) * (float)Game.Instance.FlightScene.CraftNode.Parent.PlanetData.Radius * new Vector3(1,1,1);
-        
-        } else {
+            if (Clouds == null)
+            {
+                Clouds = Instantiate(Mod.Instance.ResourceLoader.LoadAsset<GameObject>("Clouds"));
+            }
 
-            if(clouds!=null) Destroy(clouds);
-            isdroo = false;
+            Clouds.transform.localScale = (2 + ModSettings.Instance.CloudHeight) * (float)Game.Instance.FlightScene.CraftNode.Parent.PlanetData.Radius * Vector3.one;
+        }
+        else if (Clouds != null)
+        {
+            Destroy(Clouds);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isdroo)
+        if (_isDroo)
         {
-            clouds.transform.position = Game.Instance.FlightScene.CraftNode.ReferenceFrame.PlanetToFramePosition(Vector3d.zero);
+            Clouds.transform.position = Game.Instance.FlightScene.CraftNode.ReferenceFrame.PlanetToFramePosition(Vector3d.zero);
         }
     }
 }

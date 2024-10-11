@@ -1,10 +1,5 @@
 namespace Assets.Scripts
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using ModApi.Common;
     using ModApi.Settings.Core;
 
     /// <summary>
@@ -31,7 +26,7 @@ namespace Assets.Scripts
         /// <value>
         /// The mod settings instance.
         /// </value>
-        public static ModSettings Instance => _instance ?? (_instance = Game.Instance.Settings.ModSettings.GetCategory<ModSettings>());
+        public static ModSettings Instance => _instance ??= Game.Instance.Settings.ModSettings.GetCategory<ModSettings>();
 
         ///// <summary>
         ///// Gets the TestSetting1 value
