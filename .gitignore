@@ -71,3 +71,10 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 *.vsconfig
+
+# Unwanted project files
+
+/Assets/TestAssets/
+/Assets/TestAssets.meta
+ModAssetBundles/
+.vscode/

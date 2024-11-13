@@ -77,7 +77,7 @@ Shader "Custom/CloudTest"
                     -sinBlue * i.worldNormal.x + cosBlue * i.worldNormal.z
                 )).b;
 
-                fixed cloudIntensity = saturate(1000 * colorR * colorG * colorB);
+                fixed cloudIntensity = saturate(colorR * colorG * colorB);
                 
                 // Compute the dot product between the normal and light direction
                 float dotProduct = dot(i.worldNormal, normalize(_LightDirection.xyz));

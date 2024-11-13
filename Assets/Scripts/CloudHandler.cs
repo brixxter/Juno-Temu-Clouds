@@ -24,7 +24,7 @@ public class CloudHandler : MonoBehaviour
             Clouds.transform.position = _craftNode.ReferenceFrame.PlanetToFramePosition(Vector3d.zero);
             _material.SetFloat("_RotationAngle", (float)(Game.Instance.FlightScene.FlightState.Time) / 3600);
             // TODO: Ensure clouds match the rotation of the planet in all conditions so the static layer is always where it belongs
-            // TODO: Set the light direction in the shader, so the light reaching the clouds comes from the sun
+            _material.SetVector("_LightDirection", -Game.Instance.FlightScene.ViewManager.GameView.SunLight.transform.forward);
         }
     }
 
@@ -75,7 +75,7 @@ public class CloudHandler : MonoBehaviour
 
         for (int i = 0; i < textureFiles.Length; i++)
         {
-            string filePath = ModApi.Utilities.CombinePaths(Game.PersistentDataPath, "Vlachken", textureFiles[i]);
+            string filePath = ModApi.Utilities.CombinePaths(Game.PersistentDataPath, "Mods/TemuClouds/", textureFiles[i]);
             if (!System.IO.File.Exists(filePath))
             {
                 Debug.LogError($"File not found: {filePath}");
