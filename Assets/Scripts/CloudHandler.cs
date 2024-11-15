@@ -104,6 +104,7 @@ public class CloudHandler : MonoBehaviour
         }
 
         Cubemap cubemap = new(width, TextureFormat.RGBA32, false);
+        cubemap.wrapMode = TextureWrapMode.Clamp;
         cubemap.SetPixels(textures[0].GetPixels(), CubemapFace.PositiveX);
         cubemap.SetPixels(textures[1].GetPixels(), CubemapFace.NegativeX);
         cubemap.SetPixels(textures[2].GetPixels(), CubemapFace.PositiveY);
