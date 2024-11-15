@@ -53,7 +53,7 @@ public class CloudHandler : MonoBehaviour
                 }
             }
 
-            Clouds.transform.localScale = (1 + 0.001f * ModSettings.Instance.CloudHeight) * (float)_craftNode.Parent.PlanetData.Radius * Vector3.one;
+            Clouds.transform.localScale = 2 * ((float)_craftNode.Parent.PlanetData.Radius + 1000 * ModSettings.Instance.CloudHeight) * Vector3.one;
         }
         else if (Clouds != null)
         {

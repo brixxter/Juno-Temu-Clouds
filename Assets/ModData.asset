@@ -15,7 +15,7 @@ MonoBehaviour:
   _assemblies:
   - Temu Clouds.dll
   _author: Brixxter
-  _description: Clouds so cheap they don't even get a mod page
+  _description: Simple 2D clouds for Droo
   _loadPriority: 1000
   _name: Temu Clouds
   _otherAssets:

@@ -47,9 +47,9 @@ namespace Assets.Scripts
             //    .SetDisplayFormatter(x => x.ToString("F1"))
             //    .SetDefault(2f);
 
-            this.CloudHeight = this.CreateNumeric<float>("Cloud Height",  5f, 60f, 0.1f)
-                .SetDescription("Idk slide around until you're happy with the height")
-                .SetDefault(0.03f);
+            this.CloudHeight = this.CreateNumeric<float>("Cloud Height",  1f, 20f, 0.05f)
+                .SetDescription("Cloud height in km")
+                .SetDefault(5f);
         }
     }
 }
